@@ -15,10 +15,10 @@ Only the `software` branch is active (see `plan/PROFILE.md`). Each leaf names wh
 ## Q2 Engineering — safety & security
 - Q2.1 Which services are read-only and safe to allow? → D-004, T-S01..T-S03 (C-018)
 - Q2.2 Are there known side-effects of read-only sessions on this car family? → A-018 (C-014)
-- Q2.3 Do pinned dependencies carry known vulnerabilities? → T-S06 (C-021)
+- Q2.3 Do pinned dependencies carry known vulnerabilities? → CHK-01 (C-021)
 
 ## Q3 Engineering — testing without a car
-- Q3.1 Can an emulator stand in for the adapter + car, including Renault-style headers? → D-012, T-I01..T-I05 (C-002, C-010)
+- Q3.1 Can an emulator stand in for the adapter + car, including Renault-style headers? → D-012, T-I01..T-I04 (C-002, C-010)
 - Q3.2 What is the emulator throughput, so perf tests measure our code, not the emulator? → A-016, T-P01, T-P02 (C-020)
 - Q3.3 Is the emulator licence compatible with our use? → A-017, D-012 (C-015)
 

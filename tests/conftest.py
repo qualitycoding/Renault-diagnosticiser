@@ -103,6 +103,10 @@ def _build_scenario():
         "765 22 87 09 00 00 00 00 00")
     add("T_AIRBAG_SESSION", "752", "10C0", "772 03 7F 10 12")
     add("T_AIRBAG_DTC", "752", "1902AF", "772 03 59 02 FF")
+    # Vehicle stationary (R-003 interlock, T-S09): override the stock scenario's 10 km/h speed.
+    from elm.obd_message import HD, SZ, DT
+    sc["SPEED"] = {"Request": "^010D" + ELM_FOOTER, "Descr": "Vehicle Speed (stationary)", "Header": "7E0",
+                   "Response": HD("7E8") + SZ("03") + DT("41 0D 00")}
     ObdMessage[SCENARIO] = sc
 
 

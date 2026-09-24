@@ -2,3 +2,9 @@
 __pycache__/
 *.egg-info/
 *.pyc
+# vehicle evidence stays local (R-016)
+*.log
+scan*.json
+log*.csv
+report*.html
+GATE-*-evidence/

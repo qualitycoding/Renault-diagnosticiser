@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="117" skipped="0" tests="117" time="11.705" timestamp="2026-09-24T11:52:19.098050+00:00" hostname="vm"><testcase classname="tests.integration.test_emulator" name="test_T_I01_generic_report" time="4.722"><failure message="NotImplementedError: S-007">obd_conn = &lt;obd.obd.OBD object at 0x7f4ae79a8350&gt;
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="119" skipped="0" tests="119" time="11.666" timestamp="2026-09-24T11:57:47.108214+00:00" hostname="vm"><testcase classname="tests.integration.test_emulator" name="test_T_I01_generic_report" time="4.733"><failure message="NotImplementedError: S-007">obd_conn = &lt;obd.obd.OBD object at 0x7fabf28b8f50&gt;
 
     def test_T_I01_generic_report(obd_conn):
         """T-I01 — generic EOBD read via python-OBD: VIN, MIL, readiness, protocol; SC-1; C-002; D-002."""
@@ -8,7 +8,7 @@
 tests/integration/test_emulator.py:20: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-conn = &lt;obd.obd.OBD object at 0x7f4ae79a8350&gt;
+conn = &lt;obd.obd.OBD object at 0x7fabf28b8f50&gt;
 
     def read_generic(conn) -&gt; GenericReport:
 &gt;       raise NotImplementedError("S-007")
@@ -22,19 +22,19 @@ src/renault_diag/generic.py:20: NotImplementedError</failure></testcase><testcas
 
 tests/integration/test_emulator.py:30: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-src/renault_diag/transport.py:24: in __enter__
+src/renault_diag/transport.py:25: in __enter__
     self.open()
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;renault_diag.transport.Elm327Transport object at 0x7f4ae77578c0&gt;
+self = &lt;renault_diag.transport.Elm327Transport object at 0x7fabf2de83e0&gt;
 
     def open(self) -&gt; AdapterInfo:
 &gt;       raise NotImplementedError("S-006")
 E       NotImplementedError: S-006
 
-src/renault_diag/transport.py:32: NotImplementedError</failure></testcase><testcase classname="tests.integration.test_emulator" name="test_T_I03_cli_scan_and_report_end_to_end" time="0.504"><failure message="NotImplementedError: S-012">emulator_port = '/dev/pts/0'
-tmp_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_I03_cli_scan_and_report0')
-monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f4ae65f98e0&gt;
+src/renault_diag/transport.py:33: NotImplementedError</failure></testcase><testcase classname="tests.integration.test_emulator" name="test_T_I03_cli_scan_and_report_end_to_end" time="0.503"><failure message="NotImplementedError: S-012">emulator_port = '/dev/pts/0'
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_I03_cli_scan_and_report0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7fabf0af6180&gt;
 
     def test_T_I03_cli_scan_and_report_end_to_end(emulator_port, tmp_path, monkeypatch):
         """T-I03 — CLI scan → JSON → report HTML, with all sockets forbidden (offline tool); SC-3, SC-4; A-011."""
@@ -48,7 +48,7 @@ monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f4ae65f98e0&gt;
 tests/integration/test_emulator.py:50: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-argv = ['scan', '--port', '/dev/pts/0', '--out', '/tmp/pytest-of-root/pytest-2/test_T_I03_cli_scan_and_report0/scan.json']
+argv = ['scan', '--port', '/dev/pts/0', '--out', '/tmp/pytest-of-root/pytest-4/test_T_I03_cli_scan_and_report0/scan.json']
 input_fn = &lt;built-in function input&gt;
 
     def main(argv: list[str] | None = None, *, input_fn=input) -&gt; int:
@@ -56,8 +56,8 @@ input_fn = &lt;built-in function input&gt;
 E       NotImplementedError: S-012
 
 src/renault_diag/cli.py:5: NotImplementedError</failure></testcase><testcase classname="tests.integration.test_emulator" name="test_T_I04_check_adapter_and_generic_only" time="0.503"><failure message="NotImplementedError: S-012">emulator_port = '/dev/pts/0'
-tmp_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_I04_check_adapter_and_g0')
-capsys = &lt;_pytest.capture.CaptureFixture object at 0x7f4ae65fa150&gt;
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_I04_check_adapter_and_g0')
+capsys = &lt;_pytest.capture.CaptureFixture object at 0x7fabf0af5fd0&gt;
 
     def test_T_I04_check_adapter_and_generic_only(emulator_port, tmp_path, capsys):
         """T-I04 — check-adapter prints version+voltage; --generic-only skips ECUs; SC-1."""
@@ -74,7 +74,7 @@ input_fn = &lt;built-in function input&gt;
 &gt;       raise NotImplementedError("S-012")
 E       NotImplementedError: S-012
 
-src/renault_diag/cli.py:5: NotImplementedError</failure></testcase><testcase classname="tests.operational.test_operational" name="test_T_O01_bad_port_exit_code" time="0.001"><failure message="NotImplementedError: S-012">capsys = &lt;_pytest.capture.CaptureFixture object at 0x7f4ae65f8680&gt;
+src/renault_diag/cli.py:5: NotImplementedError</failure></testcase><testcase classname="tests.operational.test_operational" name="test_T_O01_bad_port_exit_code" time="0.001"><failure message="NotImplementedError: S-012">capsys = &lt;_pytest.capture.CaptureFixture object at 0x7fabf0af6db0&gt;
 
     def test_T_O01_bad_port_exit_code(capsys):
         """T-O01 — unopenable port → exit 3 with a human message; SC-8."""
@@ -91,7 +91,7 @@ input_fn = &lt;built-in function input&gt;
 &gt;       raise NotImplementedError("S-012")
 E       NotImplementedError: S-012
 
-src/renault_diag/cli.py:5: NotImplementedError</failure></testcase><testcase classname="tests.operational.test_operational" name="test_T_O02_config_errors" time="0.001"><failure message="NotImplementedError: S-012">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_O02_config_errors0')
+src/renault_diag/cli.py:5: NotImplementedError</failure></testcase><testcase classname="tests.operational.test_operational" name="test_T_O02_config_errors" time="0.001"><failure message="NotImplementedError: S-012">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_O02_config_errors0')
 
     def test_T_O02_config_errors(tmp_path):
         """T-O02 — usage errors, missing and malformed scan files → exit 2; SC-8."""
@@ -107,7 +107,7 @@ argv = [], input_fn = &lt;built-in function input&gt;
 &gt;       raise NotImplementedError("S-012")
 E       NotImplementedError: S-012
 
-src/renault_diag/cli.py:5: NotImplementedError</failure></testcase><testcase classname="tests.operational.test_operational" name="test_T_O03_logger_resume" time="0.001"><failure message="NotImplementedError: S-010">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_O03_logger_resume0')
+src/renault_diag/cli.py:5: NotImplementedError</failure></testcase><testcase classname="tests.operational.test_operational" name="test_T_O03_logger_resume" time="0.001"><failure message="NotImplementedError: S-010">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_O03_logger_resume0')
 
     def test_T_O03_logger_resume(tmp_path):
         """T-O03 — second run appends to identical-header file; header written once; SC-5."""
@@ -118,18 +118,18 @@ src/renault_diag/cli.py:5: NotImplementedError</failure></testcase><testcase cla
 tests/operational/test_operational.py:62: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-conn = &lt;tests.operational.test_operational.FakeConn object at 0x7f4ae65fb830&gt;
+conn = &lt;tests.operational.test_operational.FakeConn object at 0x7fabf09be390&gt;
 pids = ['RPM', 'SPEED']
-out_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_O03_logger_resume0/log.csv')
+out_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_O03_logger_resume0/log.csv')
 interval_s = 0, max_samples = 5, max_duration_s = None, stop_event = None
-sleep = &lt;function test_T_O03_logger_resume.&lt;locals&gt;.&lt;lambda&gt; at 0x7f4ae65e9940&gt;
+sleep = &lt;function test_T_O03_logger_resume.&lt;locals&gt;.&lt;lambda&gt; at 0x7fabf0af19e0&gt;
 
     def log_live(conn, pids, out_path, *, interval_s=0.5, max_samples=None,
                  max_duration_s=None, stop_event=None, sleep=time.sleep) -&gt; LogSummary:
 &gt;       raise NotImplementedError("S-010")
 E       NotImplementedError: S-010
 
-src/renault_diag/logger.py:16: NotImplementedError</failure></testcase><testcase classname="tests.operational.test_operational" name="test_T_O04_logger_header_mismatch_and_unsupported" time="0.001"><failure message="NotImplementedError: S-010">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_O04_logger_header_misma0')
+src/renault_diag/logger.py:16: NotImplementedError</failure></testcase><testcase classname="tests.operational.test_operational" name="test_T_O04_logger_header_mismatch_and_unsupported" time="0.001"><failure message="NotImplementedError: S-010">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_O04_logger_header_misma0')
 
     def test_T_O04_logger_header_mismatch_and_unsupported(tmp_path):
         """T-O04 — different header → ValueError, file untouched; unsupported PID → ValueError before file creation."""
@@ -142,18 +142,18 @@ src/renault_diag/logger.py:16: NotImplementedError</failure></testcase><testcase
 tests/operational/test_operational.py:76: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-conn = &lt;tests.operational.test_operational.FakeConn object at 0x7f4ae64da960&gt;
+conn = &lt;tests.operational.test_operational.FakeConn object at 0x7fabf09bf710&gt;
 pids = ['RPM', 'SPEED']
-out_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_O04_logger_header_misma0/log.csv')
+out_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_O04_logger_header_misma0/log.csv')
 interval_s = 0, max_samples = 1, max_duration_s = None, stop_event = None
-sleep = &lt;function test_T_O04_logger_header_mismatch_and_unsupported.&lt;locals&gt;.&lt;lambda&gt; at 0x7f4ae65e9f80&gt;
+sleep = &lt;function test_T_O04_logger_header_mismatch_and_unsupported.&lt;locals&gt;.&lt;lambda&gt; at 0x7fabf0af2020&gt;
 
     def log_live(conn, pids, out_path, *, interval_s=0.5, max_samples=None,
                  max_duration_s=None, stop_event=None, sleep=time.sleep) -&gt; LogSummary:
 &gt;       raise NotImplementedError("S-010")
 E       NotImplementedError: S-010
 
-src/renault_diag/logger.py:16: NotImplementedError</failure></testcase><testcase classname="tests.operational.test_operational" name="test_T_O05_logger_interrupt_and_stop_event" time="0.001"><failure message="NotImplementedError: S-010">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_O05_logger_interrupt_an0')
+src/renault_diag/logger.py:16: NotImplementedError</failure></testcase><testcase classname="tests.operational.test_operational" name="test_T_O05_logger_interrupt_and_stop_event" time="0.001"><failure message="NotImplementedError: S-010">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_O05_logger_interrupt_an0')
 
     def test_T_O05_logger_interrupt_and_stop_event(tmp_path):
         """T-O05 — Ctrl-C mid-run keeps complete rows; stop_event stops cleanly; SC-5, SC-8."""
@@ -164,19 +164,19 @@ src/renault_diag/logger.py:16: NotImplementedError</failure></testcase><testcase
 tests/operational/test_operational.py:87: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-conn = &lt;tests.operational.test_operational.FakeConn object at 0x7f4ae64d9520&gt;
+conn = &lt;tests.operational.test_operational.FakeConn object at 0x7fabf09bda60&gt;
 pids = ['RPM', 'SPEED']
-out_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_O05_logger_interrupt_an0/log.csv')
+out_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_O05_logger_interrupt_an0/log.csv')
 interval_s = 0, max_samples = 100, max_duration_s = None, stop_event = None
-sleep = &lt;function test_T_O05_logger_interrupt_and_stop_event.&lt;locals&gt;.&lt;lambda&gt; at 0x7f4ae65ea480&gt;
+sleep = &lt;function test_T_O05_logger_interrupt_and_stop_event.&lt;locals&gt;.&lt;lambda&gt; at 0x7fabf0af2520&gt;
 
     def log_live(conn, pids, out_path, *, interval_s=0.5, max_samples=None,
                  max_duration_s=None, stop_event=None, sleep=time.sleep) -&gt; LogSummary:
 &gt;       raise NotImplementedError("S-010")
 E       NotImplementedError: S-010
 
-src/renault_diag/logger.py:16: NotImplementedError</failure></testcase><testcase classname="tests.operational.test_operational" name="test_T_O06_atomic_write_preserves_old_file" time="0.001"><failure message="NotImplementedError: S-009">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_O06_atomic_write_preser0')
-monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f4ae64dbdd0&gt;
+src/renault_diag/logger.py:16: NotImplementedError</failure></testcase><testcase classname="tests.operational.test_operational" name="test_T_O06_atomic_write_preserves_old_file" time="0.001"><failure message="NotImplementedError: S-009">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_O06_atomic_write_preser0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7fabf09bd970&gt;
 
     def test_T_O06_atomic_write_preserves_old_file(tmp_path, monkeypatch):
         """T-O06 — failure during replace leaves the previous JSON intact and no temp files; data integrity."""
@@ -194,7 +194,7 @@ monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f4ae64dbdd0&gt;
 tests/operational/test_operational.py:108: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_O06_atomic_write_preser0/scan.json')
+path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_O06_atomic_write_preser0/scan.json')
 r = ScanResult(created_utc='2026-09-24T12:00:00Z', tool_version='0.1.0', adapter={'version': 'ELM327 v1.5', 'voltage_v': 1... session_ok=False, dtcs=[], kwp_dtc_count=None, kwp_raw=None, error='no response')], warnings=['w1'], schema_version=1)
 
     def write_json_atomic(path, r: ScanResult) -&gt; None:
@@ -210,15 +210,15 @@ src/renault_diag/models.py:28: NotImplementedError</failure></testcase><testcase
 tests/operational/test_operational.py:129: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-t = &lt;tests.operational.test_operational.FlakyTransport object at 0x7f4ae6d58680&gt;
+t = &lt;tests.operational.test_operational.FlakyTransport object at 0x7fabf1facd10&gt;
 ecus = (EcuDef(name='A', label='a', tx_id=1792, rx_id=1808), EcuDef(name='B', label='b', tx_id=1793, rx_id=1809), EcuDef(name='C', label='c', tx_id=1794, rx_id=1810))
 
     def scan_all(t, ecus=SCENIC3_ECUS) -&gt; list[EcuResult]:
 &gt;       raise NotImplementedError("S-008")
 E       NotImplementedError: S-008
 
-src/renault_diag/manufacturer.py:25: NotImplementedError</failure></testcase><testcase classname="tests.performance.test_performance" name="test_T_P01_logger_throughput" time="4.512"><failure message="NotImplementedError: S-010">obd_conn = &lt;obd.obd.OBD object at 0x7f4ae65fbef0&gt;
-tmp_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_P01_logger_throughput0')
+src/renault_diag/manufacturer.py:25: NotImplementedError</failure></testcase><testcase classname="tests.performance.test_performance" name="test_T_P01_logger_throughput" time="4.511"><failure message="NotImplementedError: S-010">obd_conn = &lt;obd.obd.OBD object at 0x7fabf0af6d20&gt;
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_P01_logger_throughput0')
 
     def test_T_P01_logger_throughput(obd_conn, tmp_path):
         """T-P01 — &gt;= 50 samples/s for 4 PIDs against the emulator (software overhead only).
@@ -231,9 +231,9 @@ tmp_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_P01_logger_throughput0
 tests/performance/test_performance.py:19: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-conn = &lt;obd.obd.OBD object at 0x7f4ae65fbef0&gt;
+conn = &lt;obd.obd.OBD object at 0x7fabf0af6d20&gt;
 pids = ['RPM', 'SPEED', 'COOLANT_TEMP', 'ENGINE_LOAD']
-out_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_P01_logger_throughput0/p.csv')
+out_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_P01_logger_throughput0/p.csv')
 interval_s = 0, max_samples = 200, max_duration_s = None, stop_event = None
 sleep = &lt;built-in function sleep&gt;
 
@@ -252,17 +252,69 @@ src/renault_diag/logger.py:16: NotImplementedError</failure></testcase><testcase
 
 tests/performance/test_performance.py:29: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-src/renault_diag/transport.py:24: in __enter__
+src/renault_diag/transport.py:25: in __enter__
     self.open()
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;renault_diag.transport.Elm327Transport object at 0x7f4ae65faea0&gt;
+self = &lt;renault_diag.transport.Elm327Transport object at 0x7fabf0af5cd0&gt;
 
     def open(self) -&gt; AdapterInfo:
 &gt;       raise NotImplementedError("S-006")
 E       NotImplementedError: S-006
 
-src/renault_diag/transport.py:32: NotImplementedError</failure></testcase><testcase classname="tests.security.test_report_and_cli_security" name="test_T_S05_html_escapes_untrusted_strings" time="0.001"><failure message="NotImplementedError: S-011">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_S05_html_escapes_untrus0')
+src/renault_diag/transport.py:33: NotImplementedError</failure></testcase><testcase classname="tests.security.test_interlock" name="test_T_S09_moving_vehicle_interlock[14-5-False]" time="0.001"><failure message="NotImplementedError: S-012">speed_hex = '14', expected_rc = 5, session_sent = False
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_S09_moving_vehicle_inte0')
+fake_serial_factory = (&lt;function fake_serial_factory.&lt;locals&gt;.make at 0x7fabf0af00e0&gt;, {})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7fabf09bddc0&gt;
+
+    @pytest.mark.parametrize("speed_hex,expected_rc,session_sent", [("14", 5, False), ("00", 0, True)])
+    def test_T_S09_moving_vehicle_interlock(speed_hex, expected_rc, session_sent, tmp_path, fake_serial_factory,
+                                            monkeypatch):
+        """T-S09 — manufacturer scan refused (exit 5, no 10 C0 sent) when OBD speed &gt; 0; proceeds at 0 km/h.
+        Risk R-003; A-018; D-018. --manufacturer-only avoids python-OBD so the fake serial sees all traffic."""
+        import renault_diag.transport as tr
+        make, holder = fake_serial_factory
+        monkeypatch.setattr(tr.serial, "Serial", make({"010D": "7E8 03 41 0D " + speed_hex}))
+&gt;       rc = main(["scan", "--port", "FAKE", "--out", str(tmp_path / "s.json"), "--manufacturer-only"])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/security/test_interlock.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+argv = ['scan', '--port', 'FAKE', '--out', '/tmp/pytest-of-root/pytest-4/test_T_S09_moving_vehicle_inte0/s.json', '--manufacturer-only']
+input_fn = &lt;built-in function input&gt;
+
+    def main(argv: list[str] | None = None, *, input_fn=input) -&gt; int:
+&gt;       raise NotImplementedError("S-012")
+E       NotImplementedError: S-012
+
+src/renault_diag/cli.py:5: NotImplementedError</failure></testcase><testcase classname="tests.security.test_interlock" name="test_T_S09_moving_vehicle_interlock[00-0-True]" time="0.001"><failure message="NotImplementedError: S-012">speed_hex = '00', expected_rc = 0, session_sent = True
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_S09_moving_vehicle_inte1')
+fake_serial_factory = (&lt;function fake_serial_factory.&lt;locals&gt;.make at 0x7fabf0af32e0&gt;, {})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7fabf09bc770&gt;
+
+    @pytest.mark.parametrize("speed_hex,expected_rc,session_sent", [("14", 5, False), ("00", 0, True)])
+    def test_T_S09_moving_vehicle_interlock(speed_hex, expected_rc, session_sent, tmp_path, fake_serial_factory,
+                                            monkeypatch):
+        """T-S09 — manufacturer scan refused (exit 5, no 10 C0 sent) when OBD speed &gt; 0; proceeds at 0 km/h.
+        Risk R-003; A-018; D-018. --manufacturer-only avoids python-OBD so the fake serial sees all traffic."""
+        import renault_diag.transport as tr
+        make, holder = fake_serial_factory
+        monkeypatch.setattr(tr.serial, "Serial", make({"010D": "7E8 03 41 0D " + speed_hex}))
+&gt;       rc = main(["scan", "--port", "FAKE", "--out", str(tmp_path / "s.json"), "--manufacturer-only"])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/security/test_interlock.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+argv = ['scan', '--port', 'FAKE', '--out', '/tmp/pytest-of-root/pytest-4/test_T_S09_moving_vehicle_inte1/s.json', '--manufacturer-only']
+input_fn = &lt;built-in function input&gt;
+
+    def main(argv: list[str] | None = None, *, input_fn=input) -&gt; int:
+&gt;       raise NotImplementedError("S-012")
+E       NotImplementedError: S-012
+
+src/renault_diag/cli.py:5: NotImplementedError</failure></testcase><testcase classname="tests.security.test_report_and_cli_security" name="test_T_S05_html_escapes_untrusted_strings" time="0.001"><failure message="NotImplementedError: S-011">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_S05_html_escapes_untrus0')
 
     def test_T_S05_html_escapes_untrusted_strings(tmp_path):
         """T-S05 — ECU error text, adapter strings, descriptions and log headers are escaped; A-011; D-011."""
@@ -278,7 +330,7 @@ tests/security/test_report_and_cli_security.py:21:
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 scan = ScanResult(created_utc='2026-09-24T12:00:00Z', tool_version='0.1.0', adapter={'version': '&lt;script&gt;alert(1)&lt;/script&gt;&lt;im...ttps://evil.example/x"&gt;')], warnings=['&lt;script&gt;alert(1)&lt;/script&gt;&lt;img src="https://evil.example/x"&gt;'], schema_version=1)
-log_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_S05_html_escapes_untrus0/log.csv')
+log_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_S05_html_escapes_untrus0/log.csv')
 show_vin = False
 descriptions = {'B1007-41': '&lt;script&gt;alert(1)&lt;/script&gt;&lt;img src="https://evil.example/x"&gt;'}
 
@@ -286,9 +338,9 @@ descriptions = {'B1007-41': '&lt;script&gt;alert(1)&lt;/script&gt;&lt;img src="h
 &gt;       raise NotImplementedError("S-011")
 E       NotImplementedError: S-011
 
-src/renault_diag/report.py:9: NotImplementedError</failure></testcase><testcase classname="tests.security.test_report_and_cli_security" name="test_T_S08_clear_requires_exact_phrase" time="0.001"><failure message="NotImplementedError: S-012">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_S08_clear_requires_exac0')
-fake_serial_factory = (&lt;function fake_serial_factory.&lt;locals&gt;.make at 0x7f4ae65eade0&gt;, {})
-monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f4ae64d8170&gt;
+src/renault_diag/report.py:9: NotImplementedError</failure></testcase><testcase classname="tests.security.test_report_and_cli_security" name="test_T_S08_clear_requires_exact_phrase" time="0.001"><failure message="NotImplementedError: S-012">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_S08_clear_requires_exac0')
+fake_serial_factory = (&lt;function fake_serial_factory.&lt;locals&gt;.make at 0x7fabf0af00e0&gt;, {})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7fabf09bf140&gt;
 
     def test_T_S08_clear_requires_exact_phrase(tmp_path, fake_serial_factory, monkeypatch):
         """T-S08 — clear-engine-codes refuses without the exact typed phrase and sends no 04/14; SC-7; G-002; A-005."""
@@ -301,8 +353,8 @@ monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f4ae64d8170&gt;
 tests/security/test_report_and_cli_security.py:32: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-argv = ['clear-engine-codes', '--port', 'FAKE', '--backup-dir', '/tmp/pytest-of-root/pytest-2/test_T_S08_clear_requires_exac0']
-input_fn = &lt;function test_T_S08_clear_requires_exact_phrase.&lt;locals&gt;.&lt;lambda&gt; at 0x7f4ae65eaf20&gt;
+argv = ['clear-engine-codes', '--port', 'FAKE', '--backup-dir', '/tmp/pytest-of-root/pytest-4/test_T_S08_clear_requires_exac0']
+input_fn = &lt;function test_T_S08_clear_requires_exact_phrase.&lt;locals&gt;.&lt;lambda&gt; at 0x7fabf0af18a0&gt;
 
     def main(argv: list[str] | None = None, *, input_fn=input) -&gt; int:
 &gt;       raise NotImplementedError("S-012")
@@ -327,7 +379,7 @@ allow_clear = False
 &gt;       raise NotImplementedError("S-003")
 E       NotImplementedError: S-003
 
-src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[12 00]" time="0.001"><failure message="NotImplementedError: S-003">hexreq = '12 00'
+src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[12 00]" time="0.000"><failure message="NotImplementedError: S-003">hexreq = '12 00'
 
     @pytest.mark.parametrize("hexreq", FORBIDDEN)
     def test_T_S01_forbidden_requests(hexreq):
@@ -346,7 +398,7 @@ allow_clear = False
 &gt;       raise NotImplementedError("S-003")
 E       NotImplementedError: S-003
 
-src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[23 00 00]" time="0.001"><failure message="NotImplementedError: S-003">hexreq = '23 00 00'
+src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[23 00 00]" time="0.000"><failure message="NotImplementedError: S-003">hexreq = '23 00 00'
 
     @pytest.mark.parametrize("hexreq", FORBIDDEN)
     def test_T_S01_forbidden_requests(hexreq):
@@ -365,7 +417,7 @@ allow_clear = False
 &gt;       raise NotImplementedError("S-003")
 E       NotImplementedError: S-003
 
-src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[27 01]" time="0.001"><failure message="NotImplementedError: S-003">hexreq = '27 01'
+src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[27 01]" time="0.000"><failure message="NotImplementedError: S-003">hexreq = '27 01'
 
     @pytest.mark.parametrize("hexreq", FORBIDDEN)
     def test_T_S01_forbidden_requests(hexreq):
@@ -422,7 +474,7 @@ allow_clear = False
 &gt;       raise NotImplementedError("S-003")
 E       NotImplementedError: S-003
 
-src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[2F 01 00]" time="0.001"><failure message="NotImplementedError: S-003">hexreq = '2F 01 00'
+src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[2F 01 00]" time="0.000"><failure message="NotImplementedError: S-003">hexreq = '2F 01 00'
 
     @pytest.mark.parametrize("hexreq", FORBIDDEN)
     def test_T_S01_forbidden_requests(hexreq):
@@ -441,7 +493,7 @@ allow_clear = False
 &gt;       raise NotImplementedError("S-003")
 E       NotImplementedError: S-003
 
-src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[30 01]" time="0.001"><failure message="NotImplementedError: S-003">hexreq = '30 01'
+src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[30 01]" time="0.000"><failure message="NotImplementedError: S-003">hexreq = '30 01'
 
     @pytest.mark.parametrize("hexreq", FORBIDDEN)
     def test_T_S01_forbidden_requests(hexreq):
@@ -460,7 +512,7 @@ allow_clear = False
 &gt;       raise NotImplementedError("S-003")
 E       NotImplementedError: S-003
 
-src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[31 01 00]" time="0.001"><failure message="NotImplementedError: S-003">hexreq = '31 01 00'
+src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[31 01 00]" time="0.000"><failure message="NotImplementedError: S-003">hexreq = '31 01 00'
 
     @pytest.mark.parametrize("hexreq", FORBIDDEN)
     def test_T_S01_forbidden_requests(hexreq):
@@ -498,7 +550,7 @@ allow_clear = False
 &gt;       raise NotImplementedError("S-003")
 E       NotImplementedError: S-003
 
-src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[35 00]" time="0.001"><failure message="NotImplementedError: S-003">hexreq = '35 00'
+src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[35 00]" time="0.000"><failure message="NotImplementedError: S-003">hexreq = '35 00'
 
     @pytest.mark.parametrize("hexreq", FORBIDDEN)
     def test_T_S01_forbidden_requests(hexreq):
@@ -517,7 +569,7 @@ allow_clear = False
 &gt;       raise NotImplementedError("S-003")
 E       NotImplementedError: S-003
 
-src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[36 00]" time="0.001"><failure message="NotImplementedError: S-003">hexreq = '36 00'
+src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[36 00]" time="0.000"><failure message="NotImplementedError: S-003">hexreq = '36 00'
 
     @pytest.mark.parametrize("hexreq", FORBIDDEN)
     def test_T_S01_forbidden_requests(hexreq):
@@ -536,7 +588,7 @@ allow_clear = False
 &gt;       raise NotImplementedError("S-003")
 E       NotImplementedError: S-003
 
-src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[37]" time="0.001"><failure message="NotImplementedError: S-003">hexreq = '37'
+src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[37]" time="0.000"><failure message="NotImplementedError: S-003">hexreq = '37'
 
     @pytest.mark.parametrize("hexreq", FORBIDDEN)
     def test_T_S01_forbidden_requests(hexreq):
@@ -593,7 +645,7 @@ allow_clear = False
 &gt;       raise NotImplementedError("S-003")
 E       NotImplementedError: S-003
 
-src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[85 02]" time="0.001"><failure message="NotImplementedError: S-003">hexreq = '85 02'
+src/renault_diag/safety.py:6: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01_forbidden_requests[85 02]" time="0.000"><failure message="NotImplementedError: S-003">hexreq = '85 02'
 
     @pytest.mark.parametrize("hexreq", FORBIDDEN)
     def test_T_S01_forbidden_requests(hexreq):
@@ -1509,7 +1561,7 @@ cmd = 'PPFFON'
 &gt;       raise NotImplementedError("S-003")
 E       NotImplementedError: S-003
 
-src/renault_diag/safety.py:10: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S04_at_allowlist[@3 HELLO-False]" time="0.001"><failure message="NotImplementedError: S-003">cmd = '@3 HELLO', ok = False
+src/renault_diag/safety.py:10: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S04_at_allowlist[@3 HELLO-False]" time="0.000"><failure message="NotImplementedError: S-003">cmd = '@3 HELLO', ok = False
 
     @pytest.mark.parametrize("cmd,ok", [("Z", True), ("E0", True), ("SH745", True), ("SH 7E0", True), ("CRA765", True),
                                         ("CRA", True), ("FCSH745", True), ("FCSD300000", True), ("FCSM1", True),
@@ -1743,7 +1795,7 @@ cmd = 'SH 18DAF1'
 &gt;       raise NotImplementedError("S-003")
 E       NotImplementedError: S-003
 
-src/renault_diag/safety.py:10: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01b_nothing_written_when_forbidden" time="0.000"><failure message="NotImplementedError: S-006">fake_serial_factory = (&lt;function fake_serial_factory.&lt;locals&gt;.make at 0x7f4ae5b35f80&gt;, {})
+src/renault_diag/safety.py:10: NotImplementedError</failure></testcase><testcase classname="tests.security.test_safety" name="test_T_S01b_nothing_written_when_forbidden" time="0.000"><failure message="NotImplementedError: S-006">fake_serial_factory = (&lt;function fake_serial_factory.&lt;locals&gt;.make at 0x7fabebf55b20&gt;, {})
 
     def test_T_S01b_nothing_written_when_forbidden(fake_serial_factory):
         """T-S01b — a forbidden request never reaches the serial port (not even header setup); SC-7; D-004."""
@@ -1754,13 +1806,13 @@ src/renault_diag/safety.py:10: NotImplementedError</failure></testcase><testcase
 tests/security/test_safety.py:69: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;renault_diag.transport.Elm327Transport object at 0x7f4ae5b25460&gt;
+self = &lt;renault_diag.transport.Elm327Transport object at 0x7fabebf5c2f0&gt;
 
     def open(self) -&gt; AdapterInfo:
 &gt;       raise NotImplementedError("S-006")
 E       NotImplementedError: S-006
 
-src/renault_diag/transport.py:32: NotImplementedError</failure></testcase><testcase classname="tests.unit.test_dtc" name="test_T_U01_decode_obd_pair[1-51-P0133]" time="0.001"><failure message="NotImplementedError: S-005">b0 = 1, b1 = 51, exp = 'P0133'
+src/renault_diag/transport.py:33: NotImplementedError</failure></testcase><testcase classname="tests.unit.test_dtc" name="test_T_U01_decode_obd_pair[1-51-P0133]" time="0.001"><failure message="NotImplementedError: S-005">b0 = 1, b1 = 51, exp = 'P0133'
 
     @pytest.mark.parametrize("b0,b1,exp", [(0x01, 0x33, "P0133"), (0x41, 0x23, "C0123"), (0x81, 0x00, "B0100"),
                                            (0xC1, 0x55, "U0155"), (0x90, 0x07, "B1007"), (0x3F, 0xFF, "P3FFF"),
@@ -1936,7 +1988,7 @@ status = 0
 &gt;       raise NotImplementedError("S-005")
 E       NotImplementedError: S-005
 
-src/renault_diag/dtc.py:26: NotImplementedError</failure></testcase><testcase classname="tests.unit.test_dtc" name="test_T_U07_load_descriptions" time="0.001"><failure message="NotImplementedError: S-005">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_U07_load_descriptions0')
+src/renault_diag/dtc.py:26: NotImplementedError</failure></testcase><testcase classname="tests.unit.test_dtc" name="test_T_U07_load_descriptions" time="0.001"><failure message="NotImplementedError: S-005">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_U07_load_descriptions0')
 
     def test_T_U07_load_descriptions(tmp_path):
         """T-U07 — user description CSV validation; SC-6; D-010."""
@@ -1948,7 +2000,7 @@ src/renault_diag/dtc.py:26: NotImplementedError</failure></testcase><testcase cl
 tests/unit/test_dtc.py:51: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_U07_load_descriptions0/d.csv')
+path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_U07_load_descriptions0/d.csv')
 
     def load_descriptions(path) -&gt; dict[str, str]:
 &gt;       raise NotImplementedError("S-005")
@@ -1965,7 +2017,7 @@ E
 E         Right contains 9 more items, first extra item: ('ECM', 2016, 2024)
 E         Use -v to get more diff
 
-tests/unit/test_ecus_models_report.py:19: AssertionError</failure></testcase><testcase classname="tests.unit.test_ecus_models_report" name="test_T_U08_json_round_trip_and_atomic" time="0.001"><failure message="NotImplementedError: S-009">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_U08_json_round_trip_and0')
+tests/unit/test_ecus_models_report.py:19: AssertionError</failure></testcase><testcase classname="tests.unit.test_ecus_models_report" name="test_T_U08_json_round_trip_and_atomic" time="0.001"><failure message="NotImplementedError: S-009">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_U08_json_round_trip_and0')
 
     def test_T_U08_json_round_trip_and_atomic(tmp_path):
         """T-U08 — exact JSON round trip, schema_version, atomic write; SC-3; D-### models."""
@@ -1997,7 +2049,7 @@ log_path = None, show_vin = False, descriptions = None
 &gt;       raise NotImplementedError("S-011")
 E       NotImplementedError: S-011
 
-src/renault_diag/report.py:9: NotImplementedError</failure></testcase><testcase classname="tests.unit.test_ecus_models_report" name="test_T_U09b_report_with_log_has_svg" time="0.001"><failure message="NotImplementedError: S-011">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_U09b_report_with_log_ha0')
+src/renault_diag/report.py:9: NotImplementedError</failure></testcase><testcase classname="tests.unit.test_ecus_models_report" name="test_T_U09b_report_with_log_has_svg" time="0.001"><failure message="NotImplementedError: S-011">tmp_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_U09b_report_with_log_ha0')
 
     def test_T_U09b_report_with_log_has_svg(tmp_path):
         """T-U09b — logged columns rendered as inline SVG; SC-5; D-011."""
@@ -2011,7 +2063,7 @@ tests/unit/test_ecus_models_report.py:69:
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 scan = ScanResult(created_utc='2026-09-24T12:00:00Z', tool_version='0.1.0', adapter={'version': 'ELM327 v1.5', 'voltage_v': 1... session_ok=False, dtcs=[], kwp_dtc_count=None, kwp_raw=None, error='no response')], warnings=['w1'], schema_version=1)
-log_path = PosixPath('/tmp/pytest-of-root/pytest-2/test_T_U09b_report_with_log_ha0/log.csv')
+log_path = PosixPath('/tmp/pytest-of-root/pytest-4/test_T_U09b_report_with_log_ha0/log.csv')
 show_vin = False, descriptions = None
 
     def render_html(scan, log_path=None, *, show_vin=False, descriptions=None) -&gt; str:
@@ -2272,7 +2324,7 @@ text = '7E8 02 50 C0', rx_id = 1893
 &gt;       raise NotImplementedError("S-004")
 E       NotImplementedError: S-004
 
-src/renault_diag/elm_parse.py:5: NotImplementedError</failure></testcase><testcase classname="tests.unit.test_transport" name="test_T_U10_open_sequence_and_selftest" time="0.000"><failure message="NotImplementedError: S-006">fake_serial_factory = (&lt;function fake_serial_factory.&lt;locals&gt;.make at 0x7f4ae5b61b20&gt;, {})
+src/renault_diag/elm_parse.py:5: NotImplementedError</failure></testcase><testcase classname="tests.unit.test_transport" name="test_T_U10_open_sequence_and_selftest" time="0.000"><failure message="NotImplementedError: S-006">fake_serial_factory = (&lt;function fake_serial_factory.&lt;locals&gt;.make at 0x7fabebfa0400&gt;, {})
 
     def test_T_U10_open_sequence_and_selftest(fake_serial_factory):
         """T-U10 — init sequence and D-014 self-test; SC-1; C-011, C-016; D-005, D-014."""
@@ -2287,13 +2339,13 @@ tests/unit/test_transport.py:17: in open_t
            ^^^^^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;renault_diag.transport.Elm327Transport object at 0x7f4ae5b6ab70&gt;
+self = &lt;renault_diag.transport.Elm327Transport object at 0x7fabebf94650&gt;
 
     def open(self) -&gt; AdapterInfo:
 &gt;       raise NotImplementedError("S-006")
 E       NotImplementedError: S-006
 
-src/renault_diag/transport.py:32: NotImplementedError</failure></testcase><testcase classname="tests.unit.test_transport" name="test_T_U10b_headers_set_once_and_request" time="0.000"><failure message="NotImplementedError: S-006">fake_serial_factory = (&lt;function fake_serial_factory.&lt;locals&gt;.make at 0x7f4ae5b84040&gt;, {})
+src/renault_diag/transport.py:33: NotImplementedError</failure></testcase><testcase classname="tests.unit.test_transport" name="test_T_U10b_headers_set_once_and_request" time="0.000"><failure message="NotImplementedError: S-006">fake_serial_factory = (&lt;function fake_serial_factory.&lt;locals&gt;.make at 0x7fabebfa05e0&gt;, {})
 
     def test_T_U10b_headers_set_once_and_request(fake_serial_factory):
         """T-U10b — headers only re-sent on ECU change; positive response returned; D-005."""
@@ -2308,13 +2360,13 @@ tests/unit/test_transport.py:17: in open_t
            ^^^^^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;renault_diag.transport.Elm327Transport object at 0x7f4ae5b6b740&gt;
+self = &lt;renault_diag.transport.Elm327Transport object at 0x7fabebfab7d0&gt;
 
     def open(self) -&gt; AdapterInfo:
 &gt;       raise NotImplementedError("S-006")
 E       NotImplementedError: S-006
 
-src/renault_diag/transport.py:32: NotImplementedError</failure></testcase><testcase classname="tests.unit.test_transport" name="test_T_U10c_nrc_pending_and_errors" time="0.000"><failure message="NotImplementedError: S-006">fake_serial_factory = (&lt;function fake_serial_factory.&lt;locals&gt;.make at 0x7f4ae5b84360&gt;, {})
+src/renault_diag/transport.py:33: NotImplementedError</failure></testcase><testcase classname="tests.unit.test_transport" name="test_T_U10c_nrc_pending_and_errors" time="0.000"><failure message="NotImplementedError: S-006">fake_serial_factory = (&lt;function fake_serial_factory.&lt;locals&gt;.make at 0x7fabebfa0b80&gt;, {})
 
     def test_T_U10c_nrc_pending_and_errors(fake_serial_factory):
         """T-U10c — NRC → NegativeResponseError; 78 pending re-read; wrong SID → ProtocolError; D-005."""
@@ -2330,13 +2382,13 @@ tests/unit/test_transport.py:17: in open_t
            ^^^^^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;renault_diag.transport.Elm327Transport object at 0x7f4ae5b6b500&gt;
+self = &lt;renault_diag.transport.Elm327Transport object at 0x7fabebfa9d30&gt;
 
     def open(self) -&gt; AdapterInfo:
 &gt;       raise NotImplementedError("S-006")
 E       NotImplementedError: S-006
 
-src/renault_diag/transport.py:32: NotImplementedError</failure></testcase><testcase classname="tests.unit.test_transport" name="test_T_U10d_port_not_found" time="0.000"><failure message="NotImplementedError: S-006">def test_T_U10d_port_not_found():
+src/renault_diag/transport.py:33: NotImplementedError</failure></testcase><testcase classname="tests.unit.test_transport" name="test_T_U10d_port_not_found" time="0.000"><failure message="NotImplementedError: S-006">def test_T_U10d_port_not_found():
         """T-U10d — unopenable port → AdapterNotFoundError; SC-1; operational."""
         def boom(*a, **k):
             import serial
@@ -2347,10 +2399,10 @@ src/renault_diag/transport.py:32: NotImplementedError</failure></testcase><testc
 tests/unit/test_transport.py:67: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;renault_diag.transport.Elm327Transport object at 0x7f4ae5b1dc10&gt;
+self = &lt;renault_diag.transport.Elm327Transport object at 0x7fabebf97200&gt;
 
     def open(self) -&gt; AdapterInfo:
 &gt;       raise NotImplementedError("S-006")
 E       NotImplementedError: S-006
 
-src/renault_diag/transport.py:32: NotImplementedError</failure></testcase></testsuite></testsuites>
+src/renault_diag/transport.py:33: NotImplementedError</failure></testcase></testsuite></testsuites>

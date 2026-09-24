@@ -18,5 +18,5 @@ pip-audit -r requirements.txt ; pip-audit -r requirements-dev.txt   # "No known 
 **Termination:** 3 rounds complete; round 3 produced no new load-bearing claims, no downgrades, no unresolved contradictions → **saturated**. Non-load-bearing single-source claims (C-007, C-012, C-014, C-022) are carried as risks R-004/R-005 in Phase 4.
 
 **Addendum (same round, R6):**
-- pip-audit flagged `setuptools==80.9.0` (PYSEC-2026-3447, fixed in 83.0.0) when it was first added as a build dependency → pinned `setuptools==84.0.0`; re-audit clean. This is exactly the decision rule D-015 in action.
+- pip-audit flagged `setuptools==80.9.0` (advisory PYSEC-2026-3447; fixed in 83.0.0) when it was first added as a build dependency → pinned `setuptools==84.0.0`; re-audit clean. This is exactly the decision rule D-015 in action.
 - Spike S6 (multi-frame on a custom header) found emulator limitation C-026 → fixtures must supply verbatim ISO-TP frame lines via `ST()`. Not a new external claim about cars; it changes test construction only (D-012). Saturation criterion still met: no confidence downgrades, no contradictions.

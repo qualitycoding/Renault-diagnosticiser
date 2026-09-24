@@ -14,7 +14,8 @@ class AdapterInfo:
 
 class Elm327Transport:
     def __init__(self, port: str, baudrate: int = 38400, timeout_s: float = 5.0,
-                 serial_factory=serial.Serial):
+                 serial_factory=None):
+        # None → serial.Serial looked up at open() time (allows monkeypatching, T-S08)
         self.port = port
         self.baudrate = baudrate
         self.timeout_s = timeout_s

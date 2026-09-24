@@ -1,0 +1,10 @@
+ATZ -> ATZ |  |  | ELM327 v1.5 |  | >
+ATE0 -> ATE0 | OK |  | >
+ATS1 -> OK |  | >
+ATH1 -> OK |  | >
+ATSP6 -> OK |  | >
+ATSH7DF -> OK |  | >
+ATCRA7E8 -> OK |  | >
+010D -> 7E8 03 41 0D 00  |  | >
+ATCRA -> OK |  | >
+python-OBD SPEED: 0.0 kilometer_per_hour | RPM: 1303.75 revolutions_per_minute | SPEED supported: True

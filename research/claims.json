@@ -619,7 +619,7 @@
     "evidence_class": "n/a",
     "contradicted_by": [],
     "informs": [
-      "T-S06"
+      "CHK-01"
     ]
   },
   {
@@ -746,6 +746,39 @@
     "informs": [
       "D-012",
       "T-I03"
+    ]
+  },
+  {
+    "id": "C-027",
+    "claim": "python-OBD 0.7.3 decodes the VIN (09 02) from the emulator's correct 3-frame ISO-TP reply as only 13 characters, while response.messages[0].data holds the full 49 02 01 + 17-char VIN.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "research/spikes/spike_vin.out.txt",
+        "doi": "",
+        "title": "Spike S8",
+        "version": "obd 0.7.3",
+        "locator": "whole file",
+        "accessed": "2026-09-24",
+        "tier": 1
+      },
+      {
+        "url": "research/spikes/spike_raw.out.txt",
+        "doi": "",
+        "title": "Spike S2 raw 0902 frames",
+        "version": "4.0.0",
+        "locator": "line '0902'",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-017",
+      "T-I01"
     ]
   }
 ]

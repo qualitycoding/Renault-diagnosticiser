@@ -1,0 +1,29 @@
+ATZ -> ATZ |  |  | ELM327 v1.5 |  | >
+ATE0 -> ATE0 | OK |  | >
+ATL0 -> OK |  | >
+ATS1 -> OK |  | >
+ATH1 -> OK |  | >
+ATSP6 -> OK |  | >
+ATAL -> OK |  | >
+ATCAF1 -> OK |  | >
+ATCFC1 -> OK |  | >
+ATI -> ELM327 v1.5 |  | >
+ATCRA7E8 -> OK |  | >
+ATCRA -> OK |  | >
+ATRV -> 13.1V |  | >
+7F0 10C0 -> NO DATA |  | >
+750 10C0 -> NO DATA |  | >
+752 10C0 -> 772 03 7F 10 12 |  | >
+753 10C0 -> NO DATA |  | >
+754 10C0 -> NO DATA |  | >
+745 10C0 -> 765 02 50 C0 |  | >
+762 10C0 -> NO DATA |  | >
+765 10C0 -> NO DATA |  | >
+7F1 10C0 -> NO DATA |  | >
+9 session probes took 0.53s
+connected True ISO 15765-4 (CAN 11/500)
+MIL False DTC_count 0 ignition spark
+readiness: {'MISFIRE_MONITORING': (True, True), 'FUEL_SYSTEM_MONITORING': (True, True), 'COMPONENT_MONITORING': (True, True), 'CATALYST_MONITORING': (True, True), 'HEATED_CATALYST_MONITORING': (False, True), 'EVAPORATIVE_SYSTEM_MONITORING': (False, True), 'SECONDARY_AIR_SYSTEM_MONITORING': (False, True), 'OXYGEN_SENSOR_MONITORING': (True, True), 'OXYGEN_SENSOR_HEATER_MONITORING': (False, True), 'EGR_VVT_SYSTEM_MONITORING': (True, True), 'NMHC_CATALYST_MONITORING': (False, False), 'NOX_SCR_AFTERTREATMENT_MONITORING': (False, False), 'BOOST_PRESSURE_MONITORING': (False, False), 'EXHAUST_GAS_SENSOR_MONITORING': (False, False), 'PM_FILTER_MONITORING': (False, False), None: (False, True)}
+VIN bytearray(b'WP0ZZZ99ZTS39')
+supported has: {'RPM': True, 'SPEED': True, 'COOLANT_TEMP': True, 'ENGINE_LOAD': True, 'GET_DTC': True, 'GET_CURRENT_DTC': True, 'VIN': True}
+GET_DTC [] GET_CURRENT_DTC []

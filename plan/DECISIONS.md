@@ -18,6 +18,8 @@
 | D-013 | A scan never aborts because one ECU fails; per-ECU errors are recorded. Only loss of the serial port aborts. | R3 round 1 |
 | D-014 | `open()` performs an adapter self-test: `ATI` must contain `ELM327` or `STN`/`OBDLink`, and `ATCRA7E8` must return `OK`; otherwise `AdapterUnsupportedError`. | C-016 |
 | D-015 | Dependencies hash-pinned; `pip-audit` must be clean before any merge. | C-021, C-025 |
+| D-017 | VIN is decoded from the raw python-OBD message bytes (`bytes(resp.messages[0].data)[3:20]`, ASCII, non-alphanumerics stripped), not from `resp.value`, because python-OBD 0.7.3 truncates it (C-027). |
+| D-018 | **Moving-vehicle interlock.** Before any manufacturer-ECU request, `scan` sends OBD `01 0D` to `FUNCTIONAL_OBD` through the transport. Speed > 0 → stop with exit 5 and message `vehicle must be stationary`, sending nothing further. `NoResponseError` → continue with a warning. `clear-engine-codes` applies the same interlock. | R-003, A-018 |
 | D-016 | VIN masked in HTML (`*` except last 4) unless `--show-vin`; full VIN only in local JSON. | A-012 |
 
 ## Public interfaces (stubs committed in `src/renault_diag/`)
@@ -43,7 +45,7 @@ Code text: `decode_obd_pair` → letter from bits 7–6 of `b0` (`00`P `01`C `10
 
 ### `transport.py`
 `AdapterInfo(version:str, voltage_v:float|None)`.
-`Elm327Transport(port:str, baudrate:int=38400, timeout_s:float=5.0, serial_factory=serial.Serial)` — context manager; `open() -> AdapterInfo`; `close()`; `at(cmd:str) -> str`; `read_voltage() -> float|None`; `request(ecu:EcuDef, payload:bytes, *, allow_clear:bool=False) -> bytes` (returns positive response payload; NRC → `NegativeResponseError`; NRC `0x78` with no final answer before the prompt → re-send the same (already allowlisted, read-only) request, max 10 times, then `NoResponseError`; wrong response SID → `ProtocolError`); serial open failure → `AdapterNotFoundError`.
+`Elm327Transport(port:str, baudrate:int=38400, timeout_s:float=5.0, serial_factory=None, trace_path=None)` (`serial_factory=None` → `serial.Serial` resolved at `open()` time) — context manager; `open() -> AdapterInfo`; `close()`; `at(cmd:str) -> str`; `read_voltage() -> float|None`; `request(ecu:EcuDef, payload:bytes, *, allow_clear:bool=False) -> bytes` (returns positive response payload; NRC → `NegativeResponseError`; NRC `0x78` with no final answer before the prompt → re-send the same (already allowlisted, read-only) request, max 10 times, then `NoResponseError`; wrong response SID → `ProtocolError`); serial open failure → `AdapterNotFoundError`.
 
 ### `generic.py`
 `GenericReport(vin, mil_on, dtc_count, stored:list[Dtc], pending:list[Dtc], readiness:dict[str,str], protocol:str, supported:list[str])`; `read_generic(conn: obd.OBD) -> GenericReport`.
@@ -61,7 +63,7 @@ Code text: `decode_obd_pair` → letter from bits 7–6 of `b0` (`00`P `01`C `10
 `mask_vin(vin:str|None) -> str`; `render_html(scan, log_path=None, *, show_vin=False, descriptions=None) -> str`.
 
 ### `cli.py`
-`main(argv:list[str]|None=None, *, input_fn=input) -> int`. Subcommands: `ports`; `check-adapter --port`; `scan --port --out [--generic-only] [--ecu NAME]…`; `log --port --out [--pids …] [--interval] [--duration]`; `report --scan --out [--log] [--show-vin] [--descriptions]`; `clear-engine-codes --port --backup-dir`. Exit codes: 0 OK; 2 usage/config/file error; 3 adapter not found/unsupported; 4 no vehicle response; 5 refused (safety or confirmation); 130 interrupted. `clear-engine-codes` first writes a scan JSON into `--backup-dir`, then requires the exact line `CLEAR ENGINE CODES` from `input_fn`; there is no bypass flag.
+`main(argv:list[str]|None=None, *, input_fn=input) -> int`. Subcommands: `ports`; `check-adapter --port`; `scan --port --out [--generic-only | --manufacturer-only] [--ecu NAME]… [--trace FILE]` (`--trace` appends every line sent to and received from the adapter, prefixed `>> ` / `<< `, for G-003 evidence); `log --port --out [--pids …] [--interval] [--duration]`; `report --scan --out [--log] [--show-vin] [--descriptions]`; `clear-engine-codes --port --backup-dir` (backup = `ScanResult` with `generic=None`, `ecus=[scan_ecu(ECM)]`, and the raw hex of a mode `03` request to `FUNCTIONAL_OBD` appended to `warnings`; all through `Elm327Transport`, never python-OBD); `check-adapter` prints `version: …` and `voltage: …` lines to stdout. Exit codes: 0 OK; 2 usage/config/file error; 3 adapter not found/unsupported; 4 no vehicle response (speed probe unanswered **and** every attempted ECU absent **and** generic read not connected or not attempted); 5 refused (safety or confirmation); 130 interrupted. `clear-engine-codes` first writes a scan JSON into `--backup-dir`, then requires the exact line `CLEAR ENGINE CODES` from `input_fn`; there is no bypass flag.
 
 ## Decision rules (if → then)
 | # | If | Then |
