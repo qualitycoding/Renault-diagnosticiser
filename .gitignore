@@ -8,3 +8,4 @@ scan*.json
 log*.csv
 report*.html
 GATE-*-evidence/
+elm.log*
