@@ -1,0 +1,15 @@
+'ATZ'          -> ATZ |  |  | ELM327 v1.5 |  | >
+'ATE0'         -> ATE0 | OK |  | >
+'ATH1'         -> OK |  | >
+'ATSP6'        -> OK |  | >
+'ATSH745'      -> OK |  | >
+'ATCRA765'     -> OK |  | >
+'10C0'         -> 765 02 50 C0  |  | >
+'1902FF'       -> 765 07 59 02 FF 90 07 41 2F  |  | >
+'ATSH7E0'      -> OK |  | >
+'ATCRA7E8'     -> OK |  | >
+2026-09-24 11:08:02,087 - root - INFO - Unknown request: '1902FF', header=7E0
+'1902FF'       -> NO DATA |  | >
+'ATSH7DF'      -> OK |  | >
+'ATCRA'        -> OK |  | >
+'03'           -> 7E8 02 43 00  |  | >

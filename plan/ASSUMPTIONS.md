@@ -1,0 +1,24 @@
+# Assumptions & Intake Answers (A-###)
+
+Intake batch sent 2026-09-24. The human answered items 1 (repository + credential) and implicitly accepted every other default by not answering it (Phase 0.3.6 step 3).
+
+| ID | Topic | Resolution | Source | Consequence |
+|---|---|---|---|---|
+| A-001 | Repository & credential | `github.com/qualitycoding/Renault-diagnosticiser`, fine-grained PAT supplied by the human. Verified: identity `qualitycoding`, `push: true`, repo empty, **public**. The PAT is never written to any file in the repo. | Human | Plan is public. Human should revoke the PAT after this run. |
+| A-002 | Plan only vs build | Plan only; this protocol forbids executing plan steps. Software is built later by an implementing agent following `HANDOFF.md`. | Default | No working tool exists at the end of this run; only interface stubs and frozen red tests. |
+| A-003 | Vehicle | Renault Scénic III (J95, 2009–2016), 1.5 dCi diesel (K9K), not Grand. The design must also work unchanged for the Grand Scénic III and degrade gracefully (generic OBD only) on a Scénic IV (XFA). | Default | ECU address table (D-006) follows DDT4all project `X95`; Scénic IV addresses were checked identical for the 9 ECUs used (C-008). |
+| A-004 | Scope of reading | Generic EOBD first (mode 01/03/07/09 + readiness), then Renault-specific ECU identification and fault-code reading over CAN for 9 ECUs. Manufacturer-specific live data is **out of scope** (needs the proprietary DDT2000 database, C-009). | Default | Renault fault codes are shown as ISO/SAE-format codes with status bytes, without Renault's text descriptions, unless the user supplies a mapping CSV (D-010). |
+| A-005 | Write safety | Strictly read-only. The single exception is clearing **engine (ECM) fault codes** via OBD mode 04, behind an interactive typed confirmation and human gate G-002. No other write, coding, actuator test, reset, or security-access service can ever be sent (D-004). | Default | Tool cannot clear airbag/ABS/body codes. |
+| A-006 | Platform | Python 3.12 CLI on Linux or Windows laptop; report as a self-contained HTML file (replaces the proposed local web server, D-011). | Default + D-011 | No listening socket; lower attack surface. |
+| A-007 | Features | Read & decode fault codes; live sensor logging to CSV; readiness monitors; plots of logged data (inline SVG in the HTML report). | Default | — |
+| A-008 | Distribution | Personal use; no PyPI release, no tags. Merging to `main` of the public repo is treated as a public release (gate G-002). | Default | — |
+| A-009 | Hardware | OBDLink EX (USB, STN2230) as primary; OBDLink MX+ (Bluetooth) acceptable alternative. Generic ELM327 clones unsupported for manufacturer ECUs. | Default | See `plan/HARDWARE.md`. |
+| A-010 | Planning-agent tiers | No subagent spawning in this sandbox (no API key; checked 0.1). All tier roles were performed by the orchestrator (Claude Opus 5.5). "Fresh-context" reviews (R5, 3.6, Phase 4) were performed as separate, explicitly adversarial passes by the same agent. | Environment | Logged in `state.json.tier_substitutions`; residual risk R-001. |
+| A-011 | Threat model | Assets: the vehicle's ECUs (integrity), the user's laptop, VIN (personal data). Adversaries: none external (offline tool); primary hazard is **the tool itself** sending a harmful request, plus malicious content in files the tool reads (mapping CSV, log CSV). | Planning agent | Security tests focus on the request allowlist, input parsing, and HTML escaping. |
+| A-012 | Data sensitivity | VIN = personal data (low). Stored only in local output files. HTML report masks VIN to last 4 chars unless `--show-vin`. No telemetry, no network access at runtime. | Planning agent | T-S04, T-S05. |
+| A-013 | Retention | Output files are user-owned; the tool never deletes them. | Planning agent | — |
+| A-014 | Versioning | SemVer `0.x` in `pyproject.toml`; starts at `0.1.0`. No release channel. | Planning agent | — |
+| A-015 | Maintenance | Best-effort personal tool; dependencies hash-pinned; `pip-audit` run before each merge. | Planning agent | — |
+| A-016 | Performance targets | Software overhead only (emulator): ≥ 50 generic PID samples/s logged; full 9-ECU scan ≤ 30 s when every manufacturer ECU is absent (worst case = timeouts). Real-car rate is measured, not asserted, at G-003. | Planning agent, from spike S4 | T-P01, T-P02. |
+| A-017 | License | Project license GPL-3.0-or-later (compatible with python-OBD, GPL-2.0-or-later). ELM327-emulator (CC-BY-NC-SA-4.0) is a **dev/test-only** dependency and is never vendored or redistributed. | Planning agent, C-015/C-016 | — |
+| A-018 | Vehicle conditions for live use | Ignition ON, engine OFF for scans; engine running only for live logging; vehicle stationary for any manufacturer-ECU session (ABS lamp may flash during ABS DTC reads, C-014). | Planning agent | Printed by the CLI before manufacturer scans. |

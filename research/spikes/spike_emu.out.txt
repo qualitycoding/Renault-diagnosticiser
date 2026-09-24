@@ -1,0 +1,11 @@
+port /dev/pts/0
+status Car Connected | proto ISO 15765-4 (CAN 11/500) 6
+RPM => 1303.75 revolutions_per_minute
+COOLANT_TEMP => 55 degree_Celsius
+SPEED => 10.0 kilometer_per_hour
+GET_DTC => []
+STATUS => <obd.OBDResponse.Status object at 0x7f0118f57fe0>
+ELM_VOLTAGE => 13.2 volt
+ELM_VERSION => ELM327 v1.5
+FUEL_STATUS => None
+supported count 97

@@ -1,0 +1,1 @@
+connect_s=4.02 queries_per_s mean=3291.9 min=3185.8 max=3375.1 stdev=75.51

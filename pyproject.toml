@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "renault-diag"
+version = "0.1.0"
+description = "Read-only OBD-II/EOBD and Renault ECU fault-code reader for a 2016 Renault Scenic III"
+requires-python = ">=3.12,<3.13"
+license = "GPL-3.0-or-later"
+dependencies = ["obd==0.7.3", "pyserial==3.5"]
+
+[project.scripts]
+renault-diag = "renault_diag.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "unit", "integration", "operational", "security", "performance",
+]
+addopts = "-p no:cacheprovider"

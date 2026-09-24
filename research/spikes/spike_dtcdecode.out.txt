@@ -1,0 +1,5 @@
+0133 -> ('P0133', 'O2 Sensor Circuit Slow OBDResponse')
+4123 -> ('C0123', '')
+8100 -> ('B0100', '')
+c155 -> ('U0155', 'Lost Communication With Instrument Panel Cluster (IPC) Control Module')
+0000 -> None

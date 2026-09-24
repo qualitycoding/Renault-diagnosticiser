@@ -1,0 +1,751 @@
+[
+  {
+    "id": "C-001",
+    "claim": "python-OBD latest release is 0.7.3 (2025-04-07), requires Python >=3.9, targets ELM327-compatible adapters; API may change between 0.x minor versions.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://pypi.org/pypi/obd/json",
+        "doi": "",
+        "title": "PyPI obd metadata",
+        "version": "0.7.3",
+        "locator": "info.version, releases[0.7.3].upload_time",
+        "accessed": "2026-09-24",
+        "tier": 1
+      },
+      {
+        "url": "https://python-obd.readthedocs.io/",
+        "doi": "",
+        "title": "python-OBD docs",
+        "version": "",
+        "locator": "index page, NOTE on <1.0.0",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-002",
+      "T-I01"
+    ]
+  },
+  {
+    "id": "C-002",
+    "claim": "python-OBD 0.7.3 connects to ELM327-emulator 4.0.0 over a pty, negotiates ISO 15765-4 CAN 11/500, and returns RPM, coolant temp, speed, DTC list, adapter voltage; 97 supported commands in scenario 'car'.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "research/spikes/spike_emu.out.txt",
+        "doi": "",
+        "title": "Spike S1",
+        "version": "obd 0.7.3 / emulator 4.0.0",
+        "locator": "whole file",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-002",
+      "T-I01",
+      "T-I02"
+    ]
+  },
+  {
+    "id": "C-003",
+    "claim": "python-OBD is licensed GPL-2.0-or-later.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://pypi.org/project/obd/0.7.3/",
+        "doi": "",
+        "title": "obd 0.7.3 wheel, obd/__init__.py header",
+        "version": "0.7.3",
+        "locator": "file header lines 'version 2 ... any later version'",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "A-017"
+    ]
+  },
+  {
+    "id": "C-004",
+    "claim": "Renault Megane III-platform ECUs use 11-bit CAN at 500 kbit/s by default (250k only when the DB flags brp=1).",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://github.com/cedricp/ddt4all",
+        "doi": "",
+        "title": "DDT4all elm.py set_can_addr",
+        "version": "commit d05e06087f51b858cf9fd5802a507f2c3f79ddf0",
+        "locator": "src/ddt4all/core/elm/elm.py:1683-1703",
+        "accessed": "2026-09-24",
+        "tier": 1
+      },
+      {
+        "url": "https://gitlab.com/py_ren/pyren/-/wikis/Getting-started",
+        "doi": "",
+        "title": "pyren wiki Getting started",
+        "version": "",
+        "locator": "ECU list table (CAN IDs 7E0,740,...)",
+        "accessed": "2026-09-24",
+        "tier": 3
+      }
+    ],
+    "confidence": "corroborated",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-005",
+      "T-U06"
+    ]
+  },
+  {
+    "id": "C-005",
+    "claim": "Scenic III (2009-2016) OBD socket is in the centre console between the front seats (behind the cup holder, or under the armrest cover depending on trim).",
+    "kind": "hardware",
+    "load_bearing": false,
+    "sources": [
+      {
+        "url": "https://www.klavkarr.com/location-plug-connector-obd/Renault-Scenic-3",
+        "doi": "",
+        "title": "Klavkarr Scenic 3",
+        "version": "",
+        "locator": "photo captions",
+        "accessed": "2026-09-24",
+        "tier": 3
+      },
+      {
+        "url": "https://www.klavkarr.com/location-plug-connector-obd/Renault-scenic-3-armrest",
+        "doi": "",
+        "title": "Klavkarr Scenic 3 armrest",
+        "version": "",
+        "locator": "photo captions",
+        "accessed": "2026-09-24",
+        "tier": 3
+      },
+      {
+        "url": "https://www.askthemechanic.co.uk/diagnostic-socket-location/renault",
+        "doi": "",
+        "title": "askthemechanic Renault sockets",
+        "version": "",
+        "locator": "intro",
+        "accessed": "2026-09-24",
+        "tier": 4
+      }
+    ],
+    "confidence": "corroborated",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "plan/HARDWARE.md"
+    ]
+  },
+  {
+    "id": "C-006",
+    "claim": "CAN request/response IDs for the Megane III platform (X95): ECM 7E0/7E8, ABS 740/760, EPS 742/762, TDB(cluster) 743/763, HVAC 744/764, UCH 745/765, Airbag 752/772, APB 755/775, AT 7E1/7E9.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://github.com/cedricp/ddt4all",
+        "doi": "",
+        "title": "DDT4all projects.json [X95]",
+        "version": "commit d05e06087f51b858cf9fd5802a507f2c3f79ddf0",
+        "locator": "src/ddt4all/resources/projects.json projects['[X95] - Renault Megane III'].dnat/snat",
+        "accessed": "2026-09-24",
+        "tier": 1
+      },
+      {
+        "url": "https://gitlab.com/py_ren/pyren/-/wikis/Getting-started",
+        "doi": "",
+        "title": "pyren wiki",
+        "version": "",
+        "locator": "ECU table: 7A(7E0),01(740),51(743),26(745),2C(752),29(744),6E(7E1),0D(755),04(742)",
+        "accessed": "2026-09-24",
+        "tier": 3
+      }
+    ],
+    "confidence": "corroborated",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-006",
+      "T-U05"
+    ]
+  },
+  {
+    "id": "C-007",
+    "claim": "On a Renault of this era, ECM/ABS/HVAC/AT/EPS use Renault 'STD_B' (KWP2000-style) diagnostics while TDB/UCH/Airbag/APB use UDS.",
+    "kind": "software",
+    "load_bearing": false,
+    "sources": [
+      {
+        "url": "https://gitlab.com/py_ren/pyren/-/wikis/Getting-started",
+        "doi": "",
+        "title": "pyren wiki",
+        "version": "",
+        "locator": "ECU table 'Type' column",
+        "accessed": "2026-09-24",
+        "tier": 3
+      }
+    ],
+    "confidence": "single-source",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-008"
+    ]
+  },
+  {
+    "id": "C-008",
+    "claim": "DDT4all project [XFA] Renault Scenic IV has identical CAN IDs to [X95] for the 9 ECUs in C-006.",
+    "kind": "software",
+    "load_bearing": false,
+    "sources": [
+      {
+        "url": "research/rounds/round-2.md",
+        "doi": "",
+        "title": "scripted comparison of projects.json",
+        "version": "commit d05e06087f51b858cf9fd5802a507f2c3f79ddf0",
+        "locator": "round-2 R6 note",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "A-003"
+    ]
+  },
+  {
+    "id": "C-009",
+    "claim": "Renault manufacturer parameter definitions (DDT2000 database) are proprietary and not shipped with DDT4all; users must supply their own copy.",
+    "kind": "policy",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://github.com/cedricp/ddt4all",
+        "doi": "",
+        "title": "DDT4all repo tree",
+        "version": "commit d05e06087f51b858cf9fd5802a507f2c3f79ddf0",
+        "locator": "no ecu.zip / ecus/*.xml present in repo",
+        "accessed": "2026-09-24",
+        "tier": 1
+      },
+      {
+        "url": "https://www.obdii365.com/service/how-to-use-ddt4all-with-elm327-usb-interface.html",
+        "doi": "",
+        "title": "obdii365 DDT4all guide",
+        "version": "",
+        "locator": "'The DDT2000 database (you must own it)'",
+        "accessed": "2026-09-24",
+        "tier": 4
+      }
+    ],
+    "confidence": "corroborated",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "A-004",
+      "D-010"
+    ]
+  },
+  {
+    "id": "C-010",
+    "claim": "ELM327-emulator 4.0.0 can be run in-process, accepts custom scenarios added to ObdMessage, and routes requests by ATSH header (answers 745->765, returns NO DATA for unknown header/request).",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "research/spikes/spike_custom.out.txt",
+        "doi": "",
+        "title": "Spike S3",
+        "version": "4.0.0",
+        "locator": "whole file",
+        "accessed": "2026-09-24",
+        "tier": 1
+      },
+      {
+        "url": "https://pypi.org/project/ELM327-emulator/",
+        "doi": "",
+        "title": "ELM327-emulator PyPI description",
+        "version": "4.0.0",
+        "locator": "description: multi-ECU, UDS/KWP, plugins",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-012",
+      "T-I03",
+      "T-I04"
+    ]
+  },
+  {
+    "id": "C-011",
+    "claim": "ELM327 supports AT SH (header), AT CRA (receive address filter, since v1.3), AT FC SH/SD/SM (flow control, since v1.1); DDT4all uses exactly this sequence to address Renault ECUs.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://www.elmelectronics.com/wp-content/uploads/2016/07/ELM327DSF.pdf",
+        "doi": "",
+        "title": "ELM327 datasheet",
+        "version": "",
+        "locator": "p.9 AT command summary (CAN)",
+        "accessed": "2026-09-24",
+        "tier": 1
+      },
+      {
+        "url": "https://github.com/cedricp/ddt4all",
+        "doi": "",
+        "title": "DDT4all elm.py",
+        "version": "commit d05e06087f51b858cf9fd5802a507f2c3f79ddf0",
+        "locator": "src/ddt4all/core/elm/elm.py:1670-1720",
+        "accessed": "2026-09-24",
+        "tier": 1
+      },
+      {
+        "url": "research/spikes/spike_raw.out.txt",
+        "doi": "",
+        "title": "Spike S2",
+        "version": "",
+        "locator": "ATSH/ATCRA/ATFC* -> OK",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-005",
+      "T-U07"
+    ]
+  },
+  {
+    "id": "C-012",
+    "claim": "Renault after-sales diagnostic session request is 10 C0 (DDT4all default session and 250/500k probe).",
+    "kind": "software",
+    "load_bearing": false,
+    "sources": [
+      {
+        "url": "https://github.com/cedricp/ddt4all",
+        "doi": "",
+        "title": "DDT4all param_widget.py / elm.py",
+        "version": "commit d05e06087f51b858cf9fd5802a507f2c3f79ddf0",
+        "locator": "src/ddt4all/ui/parameters/param_widget.py:33,652; elm.py:1730",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "single-source",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-007"
+    ]
+  },
+  {
+    "id": "C-013",
+    "claim": "UDS ReadDTCInformation 0x19/0x02 positive response = 0x59 0x02 statusAvailabilityMask followed by 4-byte records (3-byte DTC + 1 status byte); trailing zero padding may occur.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://udsoncan.readthedocs.io/en/latest/_modules/udsoncan/services/ReadDTCInformation.html",
+        "doi": "",
+        "title": "udsoncan ReadDTCInformation source",
+        "version": "1.26.1",
+        "locator": "response_subfn_dtc_availability_mask_plus_dtc_record; dtcid unpack of 3 bytes",
+        "accessed": "2026-09-24",
+        "tier": 1
+      },
+      {
+        "url": "https://medium.com/@nikhilgunda1999/understanding-dtc-sub-functions-in-uds-part-2-45641ff8a997",
+        "doi": "",
+        "title": "Understanding DTC sub-functions",
+        "version": "",
+        "locator": "0x02 reportDTCByStatusMask section",
+        "accessed": "2026-09-24",
+        "tier": 3
+      }
+    ],
+    "confidence": "corroborated",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-009",
+      "T-U02"
+    ]
+  },
+  {
+    "id": "C-014",
+    "claim": "Reading ABS fault codes on some Renaults through an ELM327 can make the ABS warning lamp flash while the session is active.",
+    "kind": "hardware",
+    "load_bearing": false,
+    "sources": [
+      {
+        "url": "https://github.com/cedricp/ddt4all/discussions/1120",
+        "doi": "",
+        "title": "DDT4all discussion #1120",
+        "version": "",
+        "locator": "first post",
+        "accessed": "2026-09-24",
+        "tier": 4
+      }
+    ],
+    "confidence": "single-source",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "A-018"
+    ]
+  },
+  {
+    "id": "C-015",
+    "claim": "ELM327-emulator 4.0.0 (released 2026-09-17) is licensed CC-BY-NC-SA-4.0.",
+    "kind": "policy",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://pypi.org/pypi/ELM327-emulator/json",
+        "doi": "",
+        "title": "PyPI metadata",
+        "version": "4.0.0",
+        "locator": "info.license",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "A-017",
+      "D-012"
+    ]
+  },
+  {
+    "id": "C-016",
+    "claim": "Generic ELM327 clones often fail to reach Renault CAN modules; OBDLink EX is 'tested and confirmed' with DDT4all.",
+    "kind": "hardware",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://github.com/cedricp/ddt4all",
+        "doi": "",
+        "title": "DDT4all README adapter table",
+        "version": "commit d05e06087f51b858cf9fd5802a507f2c3f79ddf0",
+        "locator": "README.md:47-53",
+        "accessed": "2026-09-24",
+        "tier": 1
+      },
+      {
+        "url": "https://github.com/cedricp/ddt4all/issues/415",
+        "doi": "",
+        "title": "DDT4all issue #415",
+        "version": "",
+        "locator": "report of CAN error with clone adapters",
+        "accessed": "2026-09-24",
+        "tier": 2
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/ELM327",
+        "doi": "",
+        "title": "Wikipedia ELM327",
+        "version": "",
+        "locator": "clones limited to v1.4 functions",
+        "accessed": "2026-09-24",
+        "tier": 3
+      }
+    ],
+    "confidence": "corroborated",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "A-009",
+      "plan/HARDWARE.md"
+    ]
+  },
+  {
+    "id": "C-017",
+    "claim": "OBDLink EX: USB, STN2230 chip, FTDI USB-serial driver, ~GBP 65 in the UK; supports all OBD-II protocols.",
+    "kind": "hardware",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://www.obdlink.com/products/obdlink-ex/",
+        "doi": "",
+        "title": "OBDLink EX product page",
+        "version": "",
+        "locator": "features",
+        "accessed": "2026-09-24",
+        "tier": 1
+      },
+      {
+        "url": "https://www.gendan.co.uk/product_OBDLINKEX.html",
+        "doi": "",
+        "title": "Gendan listing",
+        "version": "",
+        "locator": "price",
+        "accessed": "2026-09-24",
+        "tier": 4
+      },
+      {
+        "url": "https://obdadvisor.com/obdlink-ex-adapter-review/",
+        "doi": "",
+        "title": "OBDadvisor review 2026",
+        "version": "",
+        "locator": "STN2230, FTDI",
+        "accessed": "2026-09-24",
+        "tier": 3
+      }
+    ],
+    "confidence": "corroborated",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "plan/HARDWARE.md"
+    ]
+  },
+  {
+    "id": "C-018",
+    "claim": "DDT4all's non-expert 'safe' service list is 10,12,14,17,19,1A,21,22,23,3E.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://github.com/cedricp/ddt4all",
+        "doi": "",
+        "title": "DDT4all options.py",
+        "version": "commit d05e06087f51b858cf9fd5802a507f2c3f79ddf0",
+        "locator": "src/ddt4all/options.py:46",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-004"
+    ]
+  },
+  {
+    "id": "C-019",
+    "claim": "python-OBD decodes 2-byte OBD DTCs with SAE letter mapping (00->P,01->C,10->B,11->U); all-zero pair returns None.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "research/spikes/spike_dtcdecode.out.txt",
+        "doi": "",
+        "title": "Spike S5",
+        "version": "0.7.3",
+        "locator": "whole file",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-009",
+      "T-U01"
+    ]
+  },
+  {
+    "id": "C-020",
+    "claim": "On the sandbox, python-OBD against the in-process emulator sustains ~3,100-3,300 forced queries/s (stdev <100); emulator overhead is negligible for performance tests of our own code.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "research/spikes/spike_perf.out.txt",
+        "doi": "",
+        "title": "Spike S4",
+        "version": "",
+        "locator": "whole file",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "A-016",
+      "T-P01"
+    ]
+  },
+  {
+    "id": "C-021",
+    "claim": "pip-audit 2.10.1 reports no known vulnerabilities for the pinned runtime and dev sets on 2026-09-24.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "research/spikes/pip_audit.out.txt",
+        "doi": "",
+        "title": "pip-audit run",
+        "version": "2.10.1",
+        "locator": "whole file",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "T-S06"
+    ]
+  },
+  {
+    "id": "C-022",
+    "claim": "KWP-style (17 FF 00) DTC response layouts differ between Renault ECU families (e.g. ACU4 vs EDC16 test vectors in DDT4all).",
+    "kind": "software",
+    "load_bearing": false,
+    "sources": [
+      {
+        "url": "https://github.com/cedricp/ddt4all",
+        "doi": "",
+        "title": "DDT4all param_widget.py simulated responses",
+        "version": "commit d05e06087f51b858cf9fd5802a507f2c3f79ddf0",
+        "locator": "src/ddt4all/ui/parameters/param_widget.py:751-756",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "single-source",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-009"
+    ]
+  },
+  {
+    "id": "C-023",
+    "claim": "With a plain ELM327 (no STPX), DDT4all rewrites 19 02 xx to 19 02 AF to limit response size.",
+    "kind": "software",
+    "load_bearing": false,
+    "sources": [
+      {
+        "url": "https://github.com/cedricp/ddt4all",
+        "doi": "",
+        "title": "DDT4all elm.py send_cmd",
+        "version": "commit d05e06087f51b858cf9fd5802a507f2c3f79ddf0",
+        "locator": "src/ddt4all/core/elm/elm.py:813-814",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-008"
+    ]
+  },
+  {
+    "id": "C-024",
+    "claim": "The ELM327 prints 'BUFFER FULL' when its UART buffer overflows, possibly on the same line as a partial frame; 'NO DATA', 'CAN ERROR', '?' and 'STOPPED' are other terminal responses.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://lkml.iu.edu/hypermail/linux/kernel/2206.1/04951.html",
+        "doi": "",
+        "title": "can327 kernel driver docs (LKML)",
+        "version": "",
+        "locator": "BUFFER FULL paragraph",
+        "accessed": "2026-09-24",
+        "tier": 2
+      },
+      {
+        "url": "https://www.elmelectronics.com/wp-content/uploads/2016/07/ELM327DSF.pdf",
+        "doi": "",
+        "title": "ELM327 datasheet",
+        "version": "",
+        "locator": "Messages and Error Codes section",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "corroborated",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-005",
+      "T-U03"
+    ]
+  },
+  {
+    "id": "C-025",
+    "claim": "pip-tools 7.5.1 produces hash-locked requirement files that install cleanly with pip --require-hashes on Python 3.12.3.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "research/rounds/round-3.md",
+        "doi": "",
+        "title": "R6 environment spike",
+        "version": "7.5.1",
+        "locator": "round-3 environment section",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "plan/ENVIRONMENT.md"
+    ]
+  },
+  {
+    "id": "C-026",
+    "claim": "ELM327-emulator 4.0.0 does not split long SZ/DT responses into ISO-TP first/consecutive frames (prints one line with an invalid PCI); verbatim frame lines must be supplied with ST(), which are emitted unchanged regardless of ATS/ATH settings. PA() on a custom header produced no response.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "research/spikes/spike_mf.out.txt",
+        "doi": "",
+        "title": "Spike S6",
+        "version": "4.0.0",
+        "locator": "whole file",
+        "accessed": "2026-09-24",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-012",
+      "T-I03"
+    ]
+  }
+]

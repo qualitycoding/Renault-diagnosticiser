@@ -1,0 +1,23 @@
+'ATZ'            -> ATZ |  |  | ELM327 v1.5 |  | >
+'ATE0'           -> ATE0 | OK |  | >
+'ATL0'           -> OK |  | >
+'ATS0'           -> OK |  | >
+'ATH1'           -> OK |  | >
+'ATSP6'          -> OK |  | >
+'0100'           -> SEARCHING... | 7E8064100BE3FA813 |  | >
+'03'             -> 7E8024300 |  | >
+'0902'           -> 7E81014490201575030 | 7E8215A5A5A39395A54 | 7E82253333930303030 |  | >
+'ATSH7E0'        -> OK |  | >
+'ATCRA7E8'       -> OK |  | >
+'ATFCSH7E0'      -> OK |  | >
+'ATFCSD300000'   -> OK |  | >
+'ATFCSM1'        -> OK |  | >
+'10C0'           -> NO DATA |  | >
+'22F190'         -> NO DATA |  | >
+'1902FF'         -> NO DATA |  | >
+'ATSH745'        -> OK |  | >
+'ATCRA765'       -> OK |  | >
+'10C0'           -> NO DATA |  | >
+'1902FF'         -> NO DATA |  | >
+'ATCRA'          -> OK |  | >
+'ATD'            -> OK |  | >
