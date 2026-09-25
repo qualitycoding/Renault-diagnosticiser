@@ -7,7 +7,7 @@ name = "renault-diag"
 version = "0.1.0"
 description = "Read-only OBD-II/EOBD and Renault ECU fault-code reader for a 2016 Renault Scenic III"
 requires-python = ">=3.12,<3.13"
-license = "GPL-3.0-or-later"
+license = "Apache-2.0"
 dependencies = ["obd==0.7.3", "pyserial==3.5"]
 
 [project.scripts]
