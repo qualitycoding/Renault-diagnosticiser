@@ -1,5 +1,7 @@
 # HANDOFF — Renault Scénic III OBD reader (`renault-diag`)
 
+
+Reading order: `HANDOFF.md` → `ADDENDUM-PLAN-V3.9.md` → `plan/PLAN.md`. Later protocol amendments take precedence only where the gap ledger says so.
 ## Purpose
 Build a read-only Python tool that reads generic EOBD data and Renault ECU fault codes from a 2016 Renault Scénic III through an OBDLink EX adapter, logs live data to CSV, and renders a self-contained HTML report. Hardware list: `plan/HARDWARE.md`.
 
