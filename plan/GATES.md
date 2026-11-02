@@ -9,3 +9,11 @@ At a gate the implementer halts, writes `GATE-<id>.md` with the evidence bundle,
 | G-003 | S-013 (first real-vehicle session, performed by the human) | Human-captured `check-adapter` output, `scan.json`, raw adapter log (`--trace` file), 60 s `log` CSV, HTML report | "Did any ECU misbehave or any warning lamp change? Which ECUs answered? Is the data plausible?" | `proceed` → S-014; `rescope` → e.g. edit ECU table, back to S-005 with a TEST_CHALLENGE; `stop` → halt |
 
 The implementer (an AI agent) never connects to the real vehicle itself; G-003 is executed by the human with the commands in `HANDOFF.md`.
+
+## G-003 — split learning stores (v3.9)
+
+Lessons and knowledge are pushed to **separate** stores: the `Lessons`
+repository and the `knowledge` repository. G-003 requests the destinations at
+plan close; **do-not-push** either store until human sign-off; the documented
+bundle fallback applies when sign-off is withheld. Store publication never
+holds up the repository amendment's completion record.
