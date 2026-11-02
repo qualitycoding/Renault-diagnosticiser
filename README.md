@@ -2,7 +2,24 @@
 
 Read-only OBD-II/EOBD and Renault ECU fault-code reader for a 2016 Renault Scenic III.
 
-> **Status:** planning is finished and the test suite is written, but most modules in `src/renault_diag/` are still stubs. The commands below describe the planned interface (`plan/DECISIONS.md`).
+> **Status: written and tested against simulated adapters, never run on a real car.**
+> This default branch (`gen-20260924T110646Z-renault-scenic-obd-reader`) holds the plan, the research, the frozen
+> tests and stub modules in `src/renault_diag/`. The working code is on the **`impl/renault-diag`** branch
+> (about 1,300 lines of Python), where the full test suite passes (119 tests, checked with Python 3.12). It stopped at
+> gate G-003, which needs a person to run it on the car with an adapter. Nothing has been sent to a real ECU yet.
+> The branch has not been merged.
+
+To try it, use the implementation branch (Python 3.12 only):
+
+```bash
+git checkout impl/renault-diag
+python3.12 -m venv .venv && . .venv/bin/activate
+pip install -r requirements-dev.txt
+PYTHONPATH=src python -m pytest -q
+```
+
+Licence note: this branch has the Apache-2.0 `LICENSE`, but `pyproject.toml` on the implementation branch says
+`GPL-3.0-or-later` and that branch has no `LICENSE` file. The two need reconciling before release.
 
 ## What it does
 
