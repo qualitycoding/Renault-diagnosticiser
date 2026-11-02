@@ -24,3 +24,7 @@ Rule 0, Global Rules 1–6, 9, 10 (G-002 plus additional gates), Phases 0.1, 0.2
 
 ## Profile changes
 None (no `D-###` profile change recorded).
+
+## v3.9 addendum profile confirmation
+
+Active profiles unchanged; `software` active. Target protocol v3.9.
